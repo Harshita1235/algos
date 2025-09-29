@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class DeterministicSelect {
+class Select {
     public static int select(int[] arr, int k) {
         return select(arr, 0, arr.length - 1, k);
     }
@@ -45,3 +45,4 @@ class DeterministicSelect {
         int tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
     }
 }
+
