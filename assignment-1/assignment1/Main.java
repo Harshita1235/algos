@@ -2,39 +2,39 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        int n = 10000; 
-        Random rand = new Random();
-     int[] arr = rand.ints(n, 0, 100000).toArray();
+        // Example input array
+        int[] arr = {38, 27, 43, 3, 9, 82, 10};
 
-     int[] arr1 = arr.clone();
-        long start = System.nanoTime();
-        MergeSort.sort(arr1);
-        long end = System.nanoTime();
-        System.out.println("MergeSort time: " + (end - start)/1e6 + " ms");
+        System.out.println("Original array: " + Arrays.toString(arr));
 
-      
+        // ===== MergeSort =====
+        int[] arr1 = arr.clone();
+        MergeSortSimple.sort(arr1);
+        System.out.println("MergeSort: " + Arrays.toString(arr1));
+
+        // ===== QuickSort =====
         int[] arr2 = arr.clone();
-        start = System.nanoTime();
-        QuickSort.sort(arr2);
-        end = System.nanoTime();
-        System.out.println("QuickSort time: " + (end - start)/1e6 + " ms");
+        QuickSortEasy.sort(arr2);
+        System.out.println("QuickSort: " + Arrays.toString(arr2));
 
+        // ===== Deterministic Select =====
         int[] arr3 = arr.clone();
-        start = System.nanoTime();
-        int kth = DeterministicSelect.select(arr3, arr3.length/2);
-        end = System.nanoTime();
-        System.out.println("Deterministic Select (median): " + kth +
-                           ", time: " + (end - start)/1e6 + " ms");
+        int k = 3; // 0-based index → 4th smallest
+        int kth = DeterministicSelectSimple.select(arr3, k);
+        System.out.println("Deterministic Select (k=" + k + "): " + kth);
 
-        ClosestPair.Point[] pts = new ClosestPair.Point[n];
-        for (int i = 0; i < n; i++) {
-            pts[i] = new ClosestPair.Point(rand.nextDouble()*1000, rand.nextDouble()*1000);
-        }
-        start = System.nanoTime();
-        double d = ClosestPair.closest(pts);
-        end = System.nanoTime();
-        System.out.println("Closest Pair distance: " + d +
-                           ", time: " + (end - start)/1e6 + " ms");
+        // ===== Closest Pair of Points =====
+        ClosestPairEasy.Point[] pts = {
+            new ClosestPairEasy.Point(2, 3),
+            new ClosestPairEasy.Point(12, 30),
+            new ClosestPairEasy.Point(40, 50),
+            new ClosestPairEasy.Point(5, 1),
+            new ClosestPairEasy.Point(12, 10),
+            new ClosestPairEasy.Point(3, 4)
+        };
+        double dist = ClosestPairEasy.closest(pts);
+        System.out.println("Closest Pair distance = " + dist);
     }
 }
+
 
