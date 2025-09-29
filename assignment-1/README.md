@@ -63,7 +63,7 @@ Deterministic Select depth = O(log n).
 
 Closest Pair depth = log₂(n).
 
-📊 (Insert plot here: x-axis = n, y-axis = max recursion depth)
+Insert plot here: x-axis = n, y-axis = max recursion depth)
 
 4. Notes about Constants
 
@@ -90,3 +90,4 @@ MergeSort & QuickSort: verified correctness on random + adversarial arrays, recu
 Deterministic Select: cross-checked with Arrays.sort(a)[k].
 
 Closest Pair: validated against brute-force O(n²) for small n (≤ 2000).
+
